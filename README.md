@@ -99,3 +99,19 @@ Tambien hay otro archivo test_db_conn.py para probar la conexion a la base.
 ```
 
 ![Ejemplo de pedir una comida](./imagenes/post-pedir-menu.png)
+
+
+
+# Ejemplos en el FrontEnd
+
+### Pagina principal
+![Ejemplo del home](./imagenes/home.png)
+
+### Tipos de comidas
+![Ejemplo tipo de comidas](./imagenes/tipos-de-comidas.png)
+
+### Pedido de comidas
+![Ejemplo de pedido de comida](./imagenes/pedido-de-comida.png)
+
+### Ultimos 3 pedidos
+![Ejemplo de todos los pedidos](./imagenes/todos-los-pedidos.png)
