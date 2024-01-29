@@ -1,0 +1,179 @@
+
+.main {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.main-container-banner {
+    width: 100%;
+    height: 50%;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    background-position: center;
+    background-size: cover;
+    background-image: url('../assets/cover-comida-app.png');
+}
+
+.banner-container {
+    display: flex;
+    justify-content: center;
+    align-self: flex-end;
+}
+
+.banner-container h1 {
+    color: #FFFFFF;
+    font-size: 48px;
+    padding-bottom: 1em;
+
+}
+
+.home-continer-selectores {
+    width: 100%;
+    height: 30%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.selectores-container {
+    display: flex;
+    justify-content: center;
+    align-items: self-start;
+    padding-top: 2.5em;
+    gap: 24px;
+    width: 100%;
+    height: 100%;
+
+}
+
+.selectores-container label {
+    font-size: 16px;
+}
+
+.selector-tipo-comida, .selector-categoria {
+    display: flex;
+    flex-direction: column;
+}
+
+.selectores-container select {
+    width: 318px;
+    height: 44px;
+    border-radius: 8px;
+    border-color: #D0D5DD;
+    padding: 10px 14px 10px 14px;
+    gap: 4px;
+    color: #667085;
+    font-size: 16px;
+    color: none;
+}
+
+.home-container-menus {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding-bottom: 2em;
+}
+
+
+table {
+    width: 727px;
+    height: 332px;
+    border-collapse: collapse;
+    border-radius: 8px;
+    overflow: hidden;
+    font-size: 14px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 2px;
+}
+  
+th, td {
+    border: 1px solid #EAECF0;
+    padding: 8px;
+    text-align: left;
+}
+  
+th {
+    background-color: #EAECF0;
+    color: #667085;
+    padding: 12px 24px 12px 24px;
+}
+  
+td {
+    text-align: left;
+    padding: 16px 24px 16px 24px;
+    color: #101828;
+    font-weight: 600;
+}
+
+.btn-pedir button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    background-color: transparent;
+    gap: 8px;
+    color: #219653;
+    line-height: 20px;
+    font-weight: bold;
+}
+
+.btn-pedir button:hover {
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+    .main-container-banner {
+        background-image: url('../assets/pexels-william-choquette-26418861-mobile.png');
+    }
+    .banner-container {
+        height: 100%;
+        align-items: flex-end;
+    }
+    .banner-container h1 {
+        font-size: 30px;
+        text-align: center;
+    }
+
+    .home-continer-selectores {
+    }
+
+    .selectores-container {
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;   
+    }
+    .home-container-menus {
+        width: 100%;
+    }
+
+    .table-container {
+        padding-top: 2em;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 50%;
+    }
+
+    table {
+        width: 100%;
+    }
+
+    .pedido-container {
+        width: 100%;
+    }
+
+    .pedido-container table {
+        width: 50%;
+    }
+
+    .pedido-table {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
