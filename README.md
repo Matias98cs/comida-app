@@ -45,6 +45,16 @@ Tambien configurar las variables de entorno .env
     VITE_BACKEND_URL=
 ```
 
+En la carpeta ./comida-backend/ ejecutar un archivo py llamado insertar_datos.py para asi registrar los datos a la base.
+
+Tambien hay otro archivo test_db_conn.py para probar la conexion a la base.
+
+```
+  Ruta ./comida-backend/insertar_datos.py
+
+  python insertar_datos.py
+```
+
 ## API Reference
 
 #### Obtener las comidas con sus categorias
