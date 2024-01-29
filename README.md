@@ -11,9 +11,9 @@ App de pedido de comidas
 
 APIRest para consultar las comidas con sus categorias y menus y pedir una comida
 
-## Pagina subida
+<!-- ## Pagina subida
 
-https://soft-malasada-0b3037.netlify.app/
+https://soft-malasada-0b3037.netlify.app/ -->
 
 ## Configuracion del Backend 
 Crear un entorno virutal en la carpeta comida-backend
