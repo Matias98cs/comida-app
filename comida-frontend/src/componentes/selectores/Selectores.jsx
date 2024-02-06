@@ -5,7 +5,7 @@ import SelectorCard from "../selectorCard/SelectorCard"
 const Selectores = () => {
   const [selectComida, setSelectComida] = useState()
   const [selectCategoria, setSelectCategoria] = useState()
-  const {comidas, buscarCategoria, categorias, buscarMenus, setCargando} = useComidas()
+  const {comidas, buscarCategoria, categorias, buscarMenus, setCargando, setSpinnerCom} = useComidas()
 
 
   const handleSelectorUno = (e) => {
@@ -16,14 +16,14 @@ const Selectores = () => {
   const handleSelectorDos = (e) => {
     let selectorDos = e.target.value
     setSelectCategoria(selectorDos)
-    setCargando(true)
+    setSpinnerCom(true)
   }
 
   useEffect(() => {
     if (selectComida, selectCategoria) {
       buscarMenus(selectComida, selectCategoria)
     }
-  }, [selectComida, selectCategoria])
+  }, [selectCategoria])
   return (
     <div className="selectores-container">
       <div className="selector-tipo-comida">

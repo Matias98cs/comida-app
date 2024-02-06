@@ -14,13 +14,18 @@ const ComidasProvider = ({children}) => {
     const [cargando, setCargando] = useState(false)
     const [openModal, setOpenModal] = useState(false)
 
+    const [spinnerCom, setSpinnerCom] = useState(false)
+
     useEffect(() => {
         const obtenerComidas = async () => {
+            setCargando(true)
             try {
                 const allComidas = await clientAxios('/tipo_de_comida')
-                setComidas(allComidas.data)
+                setComidas(allComidas?.data)
             } catch (error) {
                 console.log(`Error al obtener las comidas: ${error.message}`)
+            } finally {
+                setCargando(false)
             }
         }
         obtenerComidas()
@@ -51,28 +56,32 @@ const ComidasProvider = ({children}) => {
     }
 
     const buscarMenus = async(tipoComida, categoria) => {
+        setSpinnerCom(true)
         try {
             const menus = await clientAxios(`/mostar-menu/?tipo_comida=${tipoComida}&categoria=${categoria}`)
             setMenus(menus.data.data)
         } catch (error) {
             console.log(`Error al intentar buscar los menus para Tipo de comida: ${tipoComida} y Categoria: ${categoria}`)
         } finally {
-            setTimeout(() => {
-                setCargando(false)
-            }, 1500)
+            // Produccion
+            setSpinnerCom(false)
+
+            // Desarrollo
+            // setTimeout(() => {
+            //     setCargando(false)
+            // }, 1500)
         }
     }
 
     const pedirMenu = async(id) => {
+        setRecargar(true)
         try {
             const {data} = await clientAxios.post(`/pedir-menu`, {"menu_id": id})
             setOpenModal(true)
         } catch (error) {
             console.log(`Hubo un error al intentar pedir el menu: ${id} - ${error}`)
         } finally {
-            setTimeout(() => {
-                setRecargar(false)
-            }, 2000)
+            setRecargar(false)
         }
     }
 
@@ -87,6 +96,7 @@ const ComidasProvider = ({children}) => {
                 pedidos,
                 recargar,
                 cargando,
+                spinnerCom,
                 setSelectorUno,
                 buscarCategoria,
                 buscarMenus,
@@ -94,7 +104,8 @@ const ComidasProvider = ({children}) => {
                 setOpenModal,
                 fechaFormateada,
                 setRecargar,
-                setCargando
+                setCargando,
+                setSpinnerCom
             }}
         >
             {children}
