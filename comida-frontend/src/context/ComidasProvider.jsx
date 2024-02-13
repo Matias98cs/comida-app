@@ -28,10 +28,6 @@ const ComidasProvider = ({children}) => {
                 setCargando(false)
             }
         }
-        obtenerComidas()
-    }, [])
-
-    useEffect(() => {
         const obtenerPedidos = async () => {
             try {
                 const {data} = await clientAxios('/pedir-menu')
@@ -41,8 +37,22 @@ const ComidasProvider = ({children}) => {
                 console.log(`Hubo un error al obtener los pedidos: {error.message}`)
             }
         }
+        obtenerComidas()
         obtenerPedidos()
-    }, [recargar])
+    }, [])
+
+    // useEffect(() => {
+    //     const obtenerPedidos = async () => {
+    //         try {
+    //             const {data} = await clientAxios('/pedir-menu')
+    //             setPedidos(data.data)
+
+    //         } catch (error) {
+    //             console.log(`Hubo un error al obtener los pedidos: {error.message}`)
+    //         }
+    //     }
+    //     obtenerPedidos()
+    // }, [recargar])
 
     const fechaFormateada = (dato) => {
         const fecha = new Date(dato)
@@ -77,6 +87,8 @@ const ComidasProvider = ({children}) => {
         setRecargar(true)
         try {
             const {data} = await clientAxios.post(`/pedir-menu`, {"menu_id": id})
+            // console.log(data)
+            setPedidos(prevPedido => [data.data, ...prevPedido])
             setOpenModal(true)
         } catch (error) {
             console.log(`Hubo un error al intentar pedir el menu: ${id} - ${error}`)
